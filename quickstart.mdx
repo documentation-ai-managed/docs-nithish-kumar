@@ -1,0 +1,120 @@
+---
+title: Getting Started with Nithish Kumar
+description: Set up your account and create your first documentation project in minutes.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- A valid email address for account verification
+- Access to a modern web browser like Chrome or Firefox
+- Optional: A GitHub account for importing repositories
+
+<Callout kind="info">
+
+Nithish Kumar is a documentation platform optimized for MDX and Markdown files. No downloads required—everything runs in your browser.
+
+</Callout>
+
+## Sign Up and Log In
+
+Follow these steps to create your account and access the dashboard.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="globe">
+    Navigate to [https://app.nithishkumar.com](https://app.nithishkumar.com).
+  </Step>
+  <Step title="Register Account" icon="user-plus">
+    Click **Sign Up** and provide your email, name, and a strong password. Agree to the terms.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification link from `no-reply@nithishkumar.com` and click it to activate your account.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the dashboard, enter your credentials, and click **Log In**. You'll land on the main workspace.
+  </Step>
+</Steps>
+
+## Create a New Documentation Space
+
+A documentation space organizes your project files. Create one now.
+
+<Steps>
+  <Step title="New Space" icon="plus">
+    From the dashboard, click **New Space** in the top-right corner.
+  </Step>
+  <Step title="Configure Space" icon="settings">
+    Enter a name like `My Project Docs`, select **Public** or **Private** visibility, and choose a brand color (e.g., `#3B82F6`).
+  </Step>
+  <Step title="Save and Enter" icon="save">
+    Click **Create**. Your new space opens with a blank editor ready for content.
+  </Step>
+</Steps>
+
+## Add Your Initial Files
+
+Populate your space by uploading files or importing from GitHub.
+
+<Tabs>
+  <Tab title="Upload Files" icon="upload">
+    Drag and drop Markdown or MDX files directly into the file sidebar, or click **Upload** to select from your device. Supported formats include `.md`, `.mdx`, and images.
+
+    <Callout kind="tip">
+      Organize files in folders by creating a new folder via right-click in the sidebar.
+    </Callout>
+  </Tab>
+  <Tab title="Import from GitHub" icon="github">
+    Click **Import** > **GitHub Repo**. Authorize Nithish Kumar, then paste your repo URL like `https://github.com/yourusername/my-docs`.
+
+    Use this CLI command locally first if needed:
+
+    <CodeGroup tabs="bash,npm">
+      ```bash
+      git clone https://github.com/yourusername/my-docs.git
+      cd my-docs
+      # Zip and upload the contents
+      zip -r docs.zip .
+      ```
+      ```bash
+      npm install -g @nithishkumar/cli
+      nithishkumar import --space="My Project Docs" --repo="yourusername/my-docs"
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Interface Tour
+
+Key areas of the Nithish Kumar interface:
+
+<Columns cols={3}>
+  <Card title="Editor" icon="edit-3" href="#editor-section">
+    Real-time MDX preview with syntax highlighting. Supports components like `<Callout>` and code blocks.
+  </Card>
+  <Card title="File Sidebar" icon="file-tree">
+    Browse, rename, and delete files. Drag to reorder.
+  </Card>
+  <Card title="Publish" icon="globe">
+    One-click deploy to a custom URL like `docs.nithishkumar.com/my-project`.
+  </Card>
+</Columns>
+
+## Next Steps
+
+Congratulations! You've set up your first documentation space.
+
+<Callout kind="success">
+
+Explore advanced features like custom domains, API integrations, and collaboration. Check the [Introduction](/introduction) for core concepts or [Authentication](/authentication) for team access.
+
+</Callout>
+
+<Columns cols={2}>
+  <Card title="Write Your First Page" icon="book-open" href="/introduction">
+    Learn MDX components and best practices.
+  </Card>
+  <Card title="Collaborate" icon="users" href="/authentication">
+    Invite team members securely.
+  </Card>
+</Columns>

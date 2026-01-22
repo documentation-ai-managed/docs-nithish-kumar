@@ -1,0 +1,124 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Nithish Kumar's documentation platform.
+---
+
+## Recent Updates
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added support for custom brand colors, including `#3B82F6` as the default blue theme.
+- Introduced `<Columns>` and `<Card>` components for creating feature grids and navigation sections.
+- Enabled Mermaid diagram rendering using standard code blocks for flowcharts and sequences.
+
+## Improvements
+
+- Enhanced MDX parsing to better handle nested code blocks with 4 backticks.
+- Improved component attribute validation for stricter double-quote enforcement.
+
+## Bug Fixes
+
+- Fixed parsing errors from unescaped `{` and `}` characters in prose text.
+- Resolved heading hierarchy issues by enforcing H2 as the first body heading.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Launched `<Steps>` and `<Tabs>` components for tutorials and platform-specific instructions.
+- Added `<Callout>` with kinds like `info`, `tip`, and `alert` for important notices.
+
+## Improvements
+
+- Optimized code highlighting in `<CodeGroup>` for multi-language examples.
+- Added accessibility attributes like `alt` and `title` to all `<Image>` and `<Video>` components.
+
+To use the new `<CodeGroup>`, follow this example:
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const apiKey = 'YOUR_API_KEY';
+  fetch('https://api.example.com/docs', {
+    headers: { Authorization: `Bearer ${apiKey}` }
+  });
+  ```
+  ```python
+  import requests
+  api_key = 'YOUR_API_KEY'
+  response = requests.get('https://api.example.com/docs', headers={
+      'Authorization': f'Bearer {api_key}'
+  })
+  ```
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core MDX documentation engine with YAML frontmatter support.
+- Integrated Lucide icons for all components, such as `zap` and `book-open`.
+- Basic components: `<ParamField>`, `<ResponseField>`, and standard markdown tables.
+
+## Breaking Changes
+
+- Removed H1 headings from body content; use frontmatter `title` instead.
+- Standardized attribute syntax to require double quotes for strings.
+
+</Update>
+
+## Upcoming Changes
+
+Preview what's coming next to Nithish Kumar's documentation platform.
+
+<Columns cols={3}>
+  <Card title="v1.3.0" icon="zap" href="#">
+    Real-time collaboration and AI-assisted MDX generation.
+  </Card>
+  <Card title="v1.4.0" icon="shield" href="#">
+    Advanced security features for API documentation.
+  </Card>
+  <Card title="v2.0.0" icon="rocket" href="#">
+    Full rewrite with React 19 and new theming engine.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Check the [GitHub repository](https://github.com/nithishkumar/docs) for beta releases and contribute via pull requests.
+</Callout>
+
+## How to Upgrade
+
+Follow these steps to update your documentation site.
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Save your current `docs/` directory.
+  </Step>
+  <Step title="Update Package" icon="download">
+````bash
+npm install nithish-kumar-docs@latest
+````
+  </Step>
+  <Step title="Rebuild" icon="refresh-cw">
+    Run `npm run build` and deploy.
+  </Step>
+  <Step title="Verify" icon="check-circle">
+    Test all pages for parsing errors.
+  </Step>
+</Steps>
+
+## Stay Informed
+
+Enable notifications to never miss an update.
+
+<Expandable title="Subscription Options" default-open="true">
+  - RSS feed: `/changelog.xml`
+  - Email: Subscribe at `https://dashboard.example.com/notifications`
+  - Webhooks: Configure at `https://api.example.com/webhooks`
+</Expandable>

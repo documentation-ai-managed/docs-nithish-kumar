@@ -1,0 +1,158 @@
+---
+title: Configuring Your Documentation Space
+description: Customize settings and preferences to tailor Nithish Kumar to your project's needs.
+---
+
+## Overview
+
+Configure Nithish Kumar to match your project's requirements. Adjust permissions, apply custom branding, set up integrations, and manage backups through the dashboard at `https://dashboard.example.com/settings`. These options ensure secure collaboration and personalized experiences.
+
+<Columns cols={2}>
+  <Card title="Permissions" icon="shield" href="#permissions">
+    Control who accesses your space.
+  </Card>
+  <Card title="Themes" icon="palette" href="#themes">
+    Customize appearance with your brand.
+  </Card>
+  <Card title="Integrations" icon="plug" href="#integrations">
+    Connect external tools seamlessly.
+  </Card>
+  <Card title="Backups" icon="database" href="#backups">
+    Protect and export your data.
+  </Card>
+</Columns>
+
+## Space Permissions and Access Controls
+
+Manage user roles to secure your documentation space. Roles include Admin, Editor, Viewer, and Guest.
+
+<Callout kind="alert">
+  Always review permissions before inviting external collaborators.
+</Callout>
+
+Use these parameters in your API calls to `https://api.example.com/v1/spaces/{spaceId}/permissions`:
+
+<ParamField path="spaceId" param-type="string" required="true">
+  Your unique space identifier.
+</ParamField>
+
+<ParamField body="role" param-type="string" required="true">
+  Role to assign: `admin`, `editor`, `viewer`, or `guest`.
+</ParamField>
+
+<ParamField body="userId" param-type="string" required="true">
+  ID of the user receiving permissions.
+</ParamField>
+
+| Role    | Can Edit | Can Invite | Can Delete |
+|---------|----------|------------|------------|
+| Admin   | Yes      | Yes        | Yes        |
+| Editor  | Yes      | No         | No         |
+| Viewer  | No       | No         | No         |
+| Guest   | Read-only| No         | No         |
+
+## Custom Themes and Branding Options
+
+Tailor the visual identity using JSON configuration. Apply your brand color `#3B82F6` for primary elements.
+
+<Tabs>
+  <Tab title="Basic Theme" icon="palette">
+    Start with essential customizations.
+    
+    <CodeGroup tabs="JSON,YAML">
+    ```json
+    {
+      "primaryColor": "#3B82F6",
+      "fontFamily": "Inter, sans-serif",
+      "logoUrl": "https://your-logo.com/logo.png"
+    }
+    ```
+    ```yaml
+    primaryColor: "#3B82F6"
+    fontFamily: "Inter, sans-serif"
+    logoUrl: "https://your-logo.com/logo.png"
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Advanced" icon="settings">
+    Fine-tune layouts and animations.
+    
+    <Expandable title="Dark Mode Settings" default-open="true">
+      Enable dark mode toggles.
+      
+````json
+{
+  "darkMode": {
+    "enabled": true,
+    "primaryColor": "#1E40AF"
+  }
+}
+````
+    </Expandable>
+  </Tab>
+</Tabs>
+
+<Steps>
+  <Step title="Upload Config" icon="upload">
+    Navigate to Settings > Themes and upload your JSON file.
+  </Step>
+  <Step title="Preview Changes" icon="eye">
+    Use the live preview to verify branding.
+  </Step>
+  <Step title="Apply Globally" icon="check-circle">
+    Save and apply to all pages.
+  </Step>
+</Steps>
+
+## Integration with External Tools
+
+Connect Nithish Kumar to GitHub, Slack, or webhooks for automated workflows.
+
+<CodeGroup tabs="Webhook,GitHub">
+```javascript
+// Set up webhook receiver
+const webhookUrl = 'https://your-webhook-url.com/webhook';
+fetch(webhookUrl, {
+  method: 'POST',
+  headers: { 'Authorization': 'Bearer YOUR_TOKEN' },
+  body: JSON.stringify({ event: 'doc-updated' })
+});
+```
+```yaml
+# GitHub App configuration
+appId: YOUR_APP_ID
+installationId: YOUR_INSTALLATION_ID
+webhookSecret: YOUR_WEBHOOK_SECRET
+```
+</CodeGroup>
+
+<ParamField header="X-Webhook-Signature" param-type="string" required="false">
+  Verify webhook authenticity.
+</ParamField>
+
+## Backup and Export Settings
+
+Safeguard your content with regular backups.
+
+<Steps>
+  <Step title="Enable Auto-Backup" icon="clock">
+    Set frequency in Settings > Backups.
+  </Step>
+  <Step title="Export Data" icon="download">
+    Download as ZIP or Markdown bundle.
+  </Step>
+  <Step title="Restore" icon="refresh-cw">
+    Upload previous export to recover.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Schedule weekly exports to external storage like S3.
+</Callout>
+
+<Expandable title="Troubleshooting Backups">
+  Common issues:
+  
+  - Large spaces exceed limits: Split into sub-spaces.
+  - Failed exports: Check `https://api.example.com/v1/backups/status`.
+</Expandable>
